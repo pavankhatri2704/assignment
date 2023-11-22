@@ -1,0 +1,525 @@
+body{
+    font-family: 'DM Sans', sans-serif;;
+}
+.primary-background-color{
+    background-color: #226CF5;
+}
+.secondary-background-color{
+    background-color: #f7f8f9;
+}
+.white-background-color{
+    background-color: #ffffff;
+}
+.primary-text-color{
+    color: #ffffff !important;
+}
+.link-text-color{
+    color: #226CF5;
+}
+.secondary-text-color{
+    color: black;
+}
+.grey-text-color{
+    color: #8F9297;
+}
+.font-size-16px{
+    font-size: 16px;
+}
+.font-size-14px{
+    font-size: 14px;
+}
+.font-size-13px{
+    font-size: 13px;
+}
+.font-size-12px{
+    font-size: 14px;
+}
+.font-size-24px{
+    font-size: 24px;
+}
+.font-size-30px{
+    font-size: 30px;
+}
+.searchbar::placeholder{
+    color: #939393;
+    font-size: 14px;
+}
+.searchbar{
+    width: 356px;
+    height: 40px;
+    border-radius: 5px !important;
+    padding-left:  52px;
+}
+.navbar-custom-size{
+    height: 76px
+}
+.title-custom-width{
+    width: 264px;
+    text-align: center;
+}
+.hover-primary-color:hover{
+    color: #ffffff !important;
+}
+.hover-primary-color:focus{
+    color: #ffffff !important;
+}
+.active-primary-color:active{
+    color: #ffffff !important;
+}
+.alert-custom-size{
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(250, 251, 252, .24) !important;
+    border-radius: 8px;
+    padding: 10px;
+}
+.searchbar-icon{
+    top: 8px;
+    left: 15px;
+}
+.navbar-right-section{
+    width: 428px;
+}
+.bell-custom-size{
+    margin-top: 10px;
+}
+.anchortag-underline{
+    text-decoration-color: white !important;
+}
+.anchortag-underline:hover{
+    text-decoration-color: white !important;
+}
+.anchortag-underline:focus{
+    text-decoration-color: white !important;
+}
+.anchortag-underline:active{
+    text-decoration-color: white !important;
+}
+.underline-blue{
+    text-decoration: underline;
+    text-decoration-color: #226CF5 !important;
+}
+.active-sidebar-item{
+    border-radius: 4px !important;
+    padding: 10px 16px !important;
+}
+.padding-x-16{
+    padding: 0px 16px !important;
+}
+.padding-y-16{
+    padding: 16px 0px !important;
+}
+.display-none{
+    display: none !important;
+}
+.datepicker.datepicker-dropdown.dropdown-menu {
+    z-index: 1000!important;
+}
+.register-dashboard{
+    width: 158px;
+    border-radius: 4px;
+    padding: 10px 16px 10px 16px;
+    gap: 8px;
+}
+.news-coursel-button{
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50%;
+}
+.font-weight-700{
+    font-weight: 700;
+}
+.gap-16{
+    gap: 16px;
+}
+.event-coursel-button{
+    background-color: white;
+    border: 1px solid #ebebeb !important;
+    border-radius: 50%;
+    padding: 2px 10px;
+}
+.event-submit-button{
+    border-radius: 4px !important;
+    background-color: #226CF5;
+}
+.padding-right-16px{
+    padding-right: 16px
+}
+.quick-link-card{
+    border-radius: 8px;
+}
+.vertical-line{
+    width: 1px;
+    background-color: #939393;
+    height: 100%;
+}
+
+.padding-top-16{
+    padding-top: 16px;
+}
+.regional-card{
+    border: 1px solid #EBEBEB;
+    border-radius: 8px;
+}
+.contional-background-color-1{
+    background-color: #9CBDFB;
+}
+.conditional-border-color-1{
+    border: 1px solid #9CBDFB;
+}
+.contional-background-color-2{
+    background-color: #EBFFEF;
+}
+.conditional-border-color-2{
+    border: 1px solid #9CBDFB;
+}
+.contional-background-color-3{
+    background-color: #EBFFEF;
+}
+.conditional-border-color-3{
+    border: 1px solid #FEE598;
+}
+.contional-background-color-4{
+    background-color: #FDCED5;
+}
+.conditional-border-color-4{
+    border: 1px solid #FDCED5;
+}
+.contional-background-color-5{
+    background-color: #D2D2D2;
+}
+.conditional-border-color-5{
+    border: 1px solid #D2D2D2;
+}
+.contional-color-1{
+    color: #226CF5;
+}
+.contional-color-2{
+    color: #41A155;
+}
+.contional-color-3{
+    color: #EBB925;
+}
+.contional-color-4{
+    color: #FF2E42;
+}
+.contional-color-5{
+    color: #616262;
+}
+.condtional-card{
+    border-radius: 3px;
+    width: 137px;
+    height: 119px;
+}
+.font-weight-500{
+    font-weight: 500;
+}
+.conditional-internal-card{
+    top: 105px;
+    left: 25px;
+    background-color: white;
+}
+.middle-coursel{
+    margin-bottom: 0px;
+}
+.container-sticky{
+    position: -webkit-sticky !important;
+    position: sticky;
+    top: 0;
+}
+.sidebar-sticky{
+   top: 92px;
+   height: calc(100vh - 92px);
+}
+.z-index-100{
+    z-index: 105;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    border: none;
+    background-color: white !important;
+    border: 1px solid rgba(250, 251, 252, .24) !important;
+    border-radius: 50%;
+}
+.dataTables_wrapper .dataTables_paginate {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.text-overflow-eclipse{
+    display:inline-block;
+    width:180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.custom-dropdown{
+    padding-left: 40px;
+}
+.input-icons{
+    left: 12px;
+    top: 5px;
+    z-index: 100;
+}
+.custom-datepicker{
+    border-left: 0px;
+}
+.custom-datepicker-input{
+    padding-left: 40px;
+    padding-right: 45px;
+}
+.date-input-icon{
+    left: 12px;
+    top: 5px;
+}
+.input-dropdown-arrow{
+    right: 10px;
+    top: 7px;
+    scale: .8;
+    display: flex;
+    justify-content: end;
+}
+.year-input-container{
+    width: 150px;
+    padding-right: 0px;
+}
+.date-input-container{
+    width: 195px;
+    padding-right: 0px;
+}
+.intake-input-container{
+    width: 170px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.countries-input-container{
+    width: 50%;
+    padding-right: 0px;
+}
+.row-margin-0px{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.row-padding-0px{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.filter-button{
+    width: 50%;
+    padding-right: 0px;
+}
+.padding-right-0{
+    padding-right: 0px !important;
+}
+.table-heading-background{
+    background-color: #EBF2FF;
+}
+.dataTable .odd td{
+    box-shadow: none !important;
+}
+.dataTables_paginate .previous{
+    visibility: hidden; 
+    position: relative;
+}
+.dataTables_paginate .previous:after { 
+    visibility: visible; 
+    position: absolute; 
+    top: 8px; 
+    left: 64px; 
+    scale: 1.4;
+    content: "<"; 
+} 
+.dataTables_paginate .next{
+    visibility: hidden; 
+    position: relative;
+}
+.dataTables_paginate .next:after { 
+    visibility: visible; 
+    position: absolute; 
+    top: 8px; 
+    left: 8px; 
+    scale: 1.4;
+    content: ">"; 
+} 
+.dataTables_paginate span .paginate_button{
+    background-color: none !important;
+}
+.dataTables_paginate span .paginate_button:hover{
+    color: black !important;
+    background-color: none !important;
+    border: none !important;
+}
+.a#example_next:hover, ::after {
+    color: black !important;
+}
+.sidebar-close-button{
+    padding: 6px 12px 4px 12px;
+    font-weight: 600;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 50%;
+    border: none;
+    color: #939393;
+}
+.sidebar-close-container{
+    right: -32px;
+    top: 5px;
+}
+.sidebar-close-container-rotation{
+    transition: 0.5s;
+    transform: rotate(180deg);
+}
+button#hamburger-menu {
+    margin-bottom: 20px
+}
+.datepicker-placeholder{
+    padding-left: 2.75rem !important;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+}
+.custom-datepicker-input-year{
+    width: 150px;
+}
+span#layer-year-date {
+    width: 100% !important;
+}
+@media only screen and (max-width: 1225px) {
+    .intake-input-container {
+        padding-left: 10px !important;
+    }
+}
+@media only screen and (max-width: 1130px) {
+    .navbar-right-section {
+      width: 340px;
+    }
+}
+@media only screen and (max-width: 1030px) {
+    .searchbar {
+      width: 280px;
+    }
+    .responsive-register-buttons{
+        display: block !important;
+    }
+    .responsive-register-buttons .register-dashboard{
+        width: 85%;
+        margin-bottom: 10px;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .responsive-register-button{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .navbar-right-section {
+      flex-direction: row !important;
+    }
+    .responsive-margin-left-10px{
+      margin-left: 10px;
+    }
+    #responsive-searchbar{
+        display: none;
+    }
+    #responsive-navbar{
+        display: none;
+    }
+    .responsive-hamburger{
+        flex-direction: row-reverse;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+    .responsive-hamburger button{
+        border: 1px solid rgba(250, 251, 252, .7);
+    }
+    .responsive-hamburger button.navbar-toggler-icon{
+        color: white;
+    }
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+    #sidebar-container{
+        display: none;
+    }
+    #dashboard-middle-section{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .full-screen-navbar{
+        display: none;
+    }
+    .hamburger-screen-navbar{
+        display: block !important;
+        text-align: left;
+        padding-left: 20px;
+        background-color: #226CF5;
+        border: none !important;
+        color: white;
+        border: none;
+    }
+    .title-custom-width {
+        position: absolute;
+        top: 25px;
+    }
+    .searchbar-icon {
+        top: 15px;
+        left: 29px;
+    }
+}
+@media only screen and (max-width: 734px) {
+    .responsive-hamburger{
+        display: block !important;
+        text-align: end;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 668px) {
+    .responsive-hamburger{
+        position: absolute;
+        right: 10px;
+    }
+    .title-custom-width{
+        width: 200px;
+     }
+    .responsive-hamburger {
+        margin-right: 10px;
+        top: 10px;
+        position: absolute;
+        right: 0px;
+    }
+    button#hamburger-menu {
+        margin-bottom: 20px
+    }
+}
+@media only screen and (max-width: 480px) {
+    .title-custom-width{
+       width: 170px;
+    }
+}
+@media only screen and (max-width: 573px) {
+    .year-input-container{
+        width: 100%
+    }
+    .date-input-container{
+        width: 100%
+    }
+    .intake-input-container{
+        width: 100%
+    }
+    .countries-input-container{
+        width: 100%
+    }
+    .filter-button{
+        width: 100%;
+    }
+    span#layer-date {
+        width: 100%;
+    }
+    .custom-datepicker-input{
+        padding-right: 0px;
+    }
+    .custom-datepicker-input-year{
+        width: auto !important;
+    }
+}
+

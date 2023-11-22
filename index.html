@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg primary-background-color container-sticky z-index-100">
+    <div class="container-fluid navbar-custom-size">
+      <div class="d-flex">
+        <a class="navbar-brand primary-text-color font-weight fw-bold title-custom-width z-index-100" href="#">coursefinder.ai</a>
+        <form role="search" class="position-relative" id="responsive-searchbar">
+          <img src="./svgs/search.svg" alt="search icon" width="24" height="24" class="position-absolute searchbar-icon" />
+          <input class="form-control searchbar font-size-14px" type="search"
+            placeholder="Search by student name, ack no." aria-label="Search">
+        </form>
+      </div>
+      <div class="d-flex responsive-hamburger">
+        <button class="navbar-toggler" type="button" id="hamburger-menu" onclick="hamburgerToggle()"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse primary-background-color w-100 mt-4" id="navbarSupportedContent">
+          <div class="d-flex justify-content-end">
+            <button type="button" onclick="hamburgerToggle()"
+              class="display-none hamburger-screen-navbar margin-top-100vh" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent">
+              <strong>X</strong>
+            </button>
+          </div>
+          <form role="search" class="position-relative mt-2 display-none hamburger-screen-navbar pt-2 pe-3"
+            id="responsive-searchbar">
+            <img src="./svgs/search.svg" alt="search icon" width="24" height="24" class="position-absolute searchbar-icon" />
+            <input class="form-control searchbar font-size-14px" type="search"
+              placeholder="Search by student name, ack no." aria-label="Search">
+          </form>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 display-none hamburger-screen-navbar">
+            <li class="nav-item">
+              <a class="nav-link active primary-text-color" aria-current="page" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Students</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Applications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Search Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Wallet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Commision Payments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Allied Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Learning Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Quick Links</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link primary-text-color" href="#">Submit Feedback</a>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse full-screen-navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav me-4 mb-2 mb-lg-0 d-flex justify-content-between navbar-right-section">
+            <li class="nav-item bell-custom-size" id="responsive-navbar">
+              <img src="./svgs/mic.svg" alt="bell" />
+              <a class="link-body-emphasis link-offset-2 anchortag-underline primary-text-color hover-primary-color"
+                aria-current="page" href="#">Whats New?</a>
+            </li>
+            <li class="nav-item alert-custom-size" id="responsive-navbar">
+              <img src="./svgs/bell.svg" alt="bell" />
+            </li>
+            <li class="nav-item dropdown d-flex">
+              <img src="./images/person.png" alt="person" width="44" height="44" id="responsive-navbar">
+              <a class="nav-link dropdown-toggle primary-text-color hover-primary-color active-primary-color responsive-margin-left-10px"
+                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="responsive-navbar">
+                Dikha Goel
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="row secondary-background-color row-margin-0px">
+    <div class="col-lg-3 row-padding-0px" id="sidebar-container">
+      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white container-sticky sidebar-sticky">
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 pt-4 ps-3 position-relative">
+            <div class="sidebar-close-container position-absolute" id="sidebar-close-container-id">
+              <button class="sidebar-close-button" onclick="sidebarHideHandler()"><</button>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple mt-2 mb-2 active active-sidebar-item"
+              aria-current="true">
+              <img src="./svgs/dashboard.svg" alt="" class="me-3"><span class="sidebar-item">Dashboard</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple mt-2 mb-3 padding-x-16 border-0">
+              <img src="./svgs/students.svg" alt="" class="me-3"><span class="sidebar-item">Students</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple mt-2 mb-3 padding-x-16 border-0">
+              <img src="./svgs/applications.svg" alt="" class="me-3"><span class="sidebar-item">Applications</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0"><img
+                src="./svgs/sidebar-searchbar.svg" alt="" class="me-3"><span class="sidebar-item">Search Courses</span></a>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0"><img
+                src="./svgs/wallet.svg" alt="" class="me-3"><span class="sidebar-item">Wallet</span></a>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0">
+              <img src="./svgs/commission.svg" alt="" class="me-3"></i><span class="sidebar-item">Commision Payments</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0"
+              onclick="toggle('alliedservice')"><img src="./svgs/alliedservice.svg" alt="" class="me-3"><span class="sidebar-item">Allied
+                Services</span><img src="./svgs/downarrow.svg" alt="" class="ms-3 sidebar-item"></a>
+            <div id="alliedservice" class="alliedservice" style="display: none;" class="ms-4">
+              <a href="#" class="list-group-item list-group-item-action ripple ms-4 mb-1 border-0"><span class="sidebar-item">Allied
+                  service</span></a>
+              <a href="#" class="list-group-item list-group-item-action ripple ms-4 mb-1 border-0"><span class="sidebar-item">Allied
+                  service</span></a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0"><img
+                src="./svgs/learning.svg" alt="" class="me-3"><span class="sidebar-item">Learning Resources</span></a>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-2 mb-3 padding-x-16 border-0"
+              onclick="toggle('quick-links')"><img src="./svgs/quicklink.svg" alt="" class="me-3"><span class="sidebar-item">Quick links</span><img
+                src="./svgs/downarrow.svg" alt="" class="ms-3 sidebar-item"></a>
+            <div id="quick-links" class="quick-links" style="display: none;" class="ms-4">
+              <a href="#" class="list-group-item list-group-item-action ripple ms-4 mb-1 border-0"><span class="sidebar-item">Quick link
+                  1</span></a>
+              <a href="#" class="list-group-item list-group-item-action ripple ms-4 mb-1 border-0"><span class="sidebar-item">Quick link
+                  2</span></a>
+            </div>
+            <a href="#" class="list-group-item list-group-item-action ripple mt-4 mb-2 padding-x-16 border-0"><img
+                src="./svgs/comment.svg" alt="" class="me-3"><span class="sidebar-item">Submit feedback</span></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-lg-5 pt-4 ps-4 col-sm-12" id="dashboard-middle-section">
+      <div class="font-size-24px">Hey, Good Morning <strong>Diksha!</strong></div>
+      <div class="card row mt-4">
+        <div
+          class="flex-container d-flex w-100 flex-wrap justify-content-between align-items-center flex-row row mt-4 padding-right-0">
+          <div class="item mb-3 year-input-container">
+            <div class="input-group">
+              <div id="yearpicker" class="input-group date rounded position-relative" data-date-format="mm-dd-yyyy">
+                <div class="input-icons position-absolute date-input-icon"><img src="./svgs/year.svg" /></div>
+                <span id="layer-year-date"
+                  class="position-relative custom-datepicker input-group-addon justify-content-center align-items-center">
+                  <div class="form-control custom-datepicker-input custom-datepicker-input-year">Year</div>
+                  <div class="position-absolute input-dropdown-arrow"><img src="./svgs/downarrow.svg" /></div>
+                </span>
+                <input class="form-control datepicker-placeholder" type="text" readonly hidden />
+              </div>
+            </div>
+          </div>
+          <div class="item mb-3 date-input-container">
+            <div class="input-group">
+              <div id="datepicker" class="input-group date rounded position-relative" data-date-format="mm-dd-yyyy">
+                <div class="input-icons position-absolute date-input-icon"><img src="./svgs/year.svg" /></div>
+                <span id="layer-date"
+                  class="position-relative custom-datepicker input-group-addon justify-content-center align-items-center">
+                  <div class="form-control custom-datepicker-input">Date Created</div>
+                  <div class="position-absolute input-dropdown-arrow"><img src="./svgs/downarrow.svg" /></div>
+                </span>
+                <input class="form-control datepicker-placeholder" type="text" readonly hidden />
+              </div>
+            </div>
+          </div>
+          <div class="item mb-3 intake-input-container">
+            <div class="input-group position-relative">
+              <div class="input-icons position-absolute"><img src="./svgs/selectintake.svg" /></div>
+              <div class="input-group">
+                <select class="form-select custom-dropdown" aria-label="Default select example">
+                  <option selected>Select Intake</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="item mb-3 countries-input-container">
+            <div class="input-group position-relative">
+              <div class="input-icons position-absolute"><img src="./svgs/country.svg" /></div>
+              <div class="input-group">
+                <select class="form-select custom-dropdown" aria-label="Default select example">
+                  <option selected>Countries</option>
+                  <option value="1">India</option>
+                  <option value="2">USA</option>
+                  <option value="3">China</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="item d-grid gap-2 mb-3 filter-button">
+            <button type="button" class="btn btn-outline-primary">Apply Filters</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex mt-4 justify-content-center flex-wrap pb-4">
+        <div class="position-relative me-2 mt-4">
+          <div class="position-relative contional-background-color-1 condtional-card p-3">
+            <div class="contional-color-1 font-weight-500 font-size-30px d-flex justify-content-center">18</div>
+            <div class="d-flex justify-content-center font-size-14px text-center">Condtional</div>
+          </div>
+          <div
+            class="position-absolute d-flex justify-content-center conditional-internal-card link-text-color font-size-13px ps-2 pe-2 pt-1 pb-1 conditional-border-color-1">
+            Offer letter</div>
+        </div>
+        <div class="position-relative me-2 mt-4">
+          <div class="position-relative contional-background-color-2 condtional-card p-3">
+            <div class="contional-color-2 font-weight-500 font-size-30px d-flex justify-content-center">18</div>
+            <div class="d-flex justify-content-center font-size-14px text-center">Un-Condtional</div>
+          </div>
+          <div
+            class="position-absolute d-flex contional-color-2 justify-content-center conditional-internal-card  font-size-13px ps-2 pe-2 pt-1 pb-1 conditional-border-color-2">
+            Offer letter</div>
+        </div>
+        <div class="position-relative me-2 mt-4">
+          <div class="position-relative contional-background-color-3 condtional-card p-3">
+            <div class="contional-color-3 font-weight-500 font-size-30px d-flex justify-content-center">18</div>
+            <div class="d-flex justify-content-center font-size-14px text-center">Payment Received</div>
+          </div>
+          <div
+            class="position-absolute d-flex justify-content-center conditional-internal-card contional-color-3 font-size-13px ps-2 pe-2 pt-1 pb-1 conditional-border-color-3">
+            Offer letter</div>
+        </div>
+        <div class="position-relative me-2 mt-4">
+          <div class="position-relative contional-background-color-4 condtional-card p-3">
+            <div class="contional-color-4 font-weight-500 font-size-30px d-flex justify-content-center">18</div>
+            <div class="d-flex justify-content-center font-size-14px text-center">Payment Received</div>
+          </div>
+          <div
+            class="position-absolute d-flex justify-content-center conditional-internal-card contional-color-4 font-size-13px ps-2 pe-2 pt-1 pb-1 conditional-border-color-4">
+            Offer letter</div>
+        </div>
+        <div class="position-relative me-2 mt-4">
+          <div class="position-relative contional-background-color-5 condtional-card p-3">
+            <div class="contional-color-5 font-weight-500 font-size-30px d-flex justify-content-center">18</div>
+            <div class="d-flex justify-content-center font-size-14px text-center">Visa Received</div>
+          </div>
+          <div
+            class="position-absolute d-flex justify-content-center conditional-internal-card contional-color-5 font-size-13px ps-2 pe-2 pt-1 pb-1 conditional-border-color-5">
+            Offer letter</div>
+        </div>
+      </div>
+      <div class="card row mt-4 p-1">
+        <div class="font-size-16px font-weight-700 mt-3">Applications</div>
+        <div class="font-size-14px font-weight-700 d-flex justify-content-start mt-2">
+          <div class="link-text-color table-heading-background pt-1 pb-1 ps-2 pe-2">Pending On Me(15)</div>
+          <div class="ms-2 pt-1 pb-1 ps-2 pe-2">Lorem ipsum (12)</div>
+          <div class="ms-2 pt-1 pb-1 ps-2 pe-2">Lorem ipsum (18)</div>
+        </div>
+        <table id="example" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Ack. no.</th>
+              <th>Student name</th>
+              <th>University</th>
+              <th>Program</th>
+              <th>Pending Since</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi555 Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+            <tr>
+              <td>117110/22-23</td>
+              <td>Rishi Joshi</td>
+              <td>Sheffield Hallam</td>
+              <td>Msc</td>
+              <td>1 Day</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="carouselmiddleExampleDark" class="carousel carousel-dark slide mt-4"  data-bs-ride="carousel">
+        <div class="carousel-inner position-relative">
+          <div class="carousel-item active">
+            <img src="./images/Group.png" alt="person" class="w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/Group.png" alt="person" class="w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/Group.png" alt="person" class="w-100">
+          </div>
+          <div class="carousel-indicators middle-coursel position-absolute">
+            <button type="button" data-bs-target="#carouselmiddleExampleDark" data-bs-slide-to="0"
+              class="active news-coursel-button" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselmiddleExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+              class="news-coursel-button"></button>
+            <button type="button" data-bs-target="#carouselmiddleExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+              class="news-coursel-button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 pt-4 col-sm-12">
+      <div class="d-flex justify-content-center responsive-register-buttons">
+        <div class="responsive-register-button"><button type="button"
+            class="btn btn-outline-primary font-size-14px me-1 register-dashboard">Refresh Dashboard</button></div>
+        <div class="responsive-register-button"><button type="button"
+            class="btn btn-primary font-size-14px ms-1 register-dashboard">Register Student</button></div>
+      </div>
+      <div id="carouselExampleDark" class="carousel carousel-dark slide m-4 white-background-color" data-bs-ride="carousel">
+        <div class="carousel-inner padding-y-16">
+          <div class="font-size-16px font-weight-700 padding-x-16">News Buttetin</div>
+          <div class="carousel-item active padding-x-16">
+            <div class="row gap-16 padding-y-16">
+              <div class="col-1 me-2"><img src="./svgs/news.svg" alt="person"></div>
+              <div class="col-10">
+                <div>Indian student tops harward!</div>
+                <p>Indian student tops harward university and makes history. Its the first time for an Indian student to
+                  do this <a href="#">Read More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item padding-x-16">
+            <div class="row gap-16 padding-y-16">
+              <div class="col-1 me-2"><img src="./svgs/news.svg" alt="person"></div>
+              <div class="col-10">
+                <div>Indian student tops harward!</div>
+                <p>Indian student tops harward university and makes history. Its the first time for an Indian student to
+                  do this <a href="#">Read More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item padding-x-16">
+            <div class="row gap-16 padding-y-16">
+              <div class="col-1 me-2"><img src="./svgs/news.svg" alt="person"></div>
+              <div class="col-10">
+                <div>Indian student tops harward!</div>
+                <p>Indian student tops harward university and makes history. Its the first time for an Indian student to
+                  do this <a href="#">Read More</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-indicators position-static">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+            class="active news-coursel-button" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+            class="news-coursel-button"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+            class="news-coursel-button"></button>
+        </div>
+      </div>
+      <div id="carouselEventsExampleDark" class="carousel carousel-dark slide m-4 white-background-color">
+        <div class="carousel-inner padding-y-16">
+          <div class="d-flex justify-content-between">
+            <div class="font-size-16px font-weight-700 padding-x-16">Upcoming events</div>
+            <div class="me-3">
+              <button type="button" href="#carouselEventsExampleDark" data-slide="prev"
+                onclick="$('#carouselEventsExampleDark').carousel('prev')" class="event-coursel-button">
+                <img src="./svgs/leftarrow.svg" alt="left-arrow">
+              </button>
+              <button type="button" href="#carouselEventsExampleDark" data-slide="next"
+                onclick="$('#carouselEventsExampleDark').carousel('next')" class="event-coursel-button">
+                <img src="./svgs/rightarrow.svg" alt="right-arrow">
+              </button>
+            </div>
+          </div>
+          <div class="carousel-item active padding-x-16">
+            <div><img src="./images/events.png" alt="person" class="w-100 mt-3 mb-3"></div>
+            <div class="row d-flex justify-content-between padding-right-16px">
+              <div class="col-10">
+                <div class="font-size-16px">Event Name Goes here</div>
+                <div class="font-size-13px">7 Jan 2023</div>
+              </div>
+              <div class="col-2 secondary-background-color">
+                <div class="font-size-12px">4:30</div>
+                <div class="font-size-12px">PM</div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="mt-2"><img src="./svgs/group.svg" alt="University of New York"><span class="ms-3">University of New
+                  York</span></div>
+              <div class="mt-2"><img src="./svgs/user.svg" alt="name of user"><span class="ms-3">By Kishori Gupta</span></div>
+            </div>
+            <div class="d-grid gap-2 mt-2">
+              <button type="button" class="btn btn-primary event-submit-button">Register Now</button>
+            </div>
+          </div>
+          <div class="carousel-item padding-x-16">
+            <div><img src="./images/events.png" alt="person" class="w-100 mt-3 mb-3"></div>
+            <div class="row d-flex justify-content-between padding-right-16px">
+              <div class="col-10">
+                <div class="font-size-16px">Event Name Goes here</div>
+                <div class="font-size-13px">7 Jan 2023</div>
+              </div>
+              <div class="col-2 secondary-background-color">
+                <div class="font-size-12px">4:30</div>
+                <div class="font-size-12px">PM</div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="mt-2"><img src="./svgs/group.svg" alt="University of New York"><span class="ms-3">University of New
+                  York</span></div>
+              <div class="mt-2"><img src="./svgs/user.svg" alt="name of user"><span class="ms-3">By Kishori Gupta</span></div>
+            </div>
+            <div class="d-grid gap-2 mt-2">
+              <button type="button" class="btn btn-primary event-submit-button">Register Now</button>
+            </div>
+          </div>
+          <div class="carousel-item padding-x-16">
+            <div><img src="./images/events.png" alt="person" class="w-100 mt-3 mb-3"></div>
+            <div class="row d-flex justify-content-between padding-right-16px">
+              <div class="col-10">
+                <div class="font-size-16px">Event Name Goes here</div>
+                <div class="font-size-13px">7 Jan 2023</div>
+              </div>
+              <div class="col-2 secondary-background-color">
+                <div class="font-size-12px">4:30</div>
+                <div class="font-size-12px">PM</div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="mt-2"><img src="./svgs/group.svg" alt="University of New York"><span class="ms-3">University of New
+                  York</span></div>
+              <div class="mt-2"><img src="./svgs/user.svg" alt="name of user"><span class="ms-3">By Kishori Gupta</span></div>
+            </div>
+            <div class="d-grid gap-2 mt-2">
+              <button type="button" class="btn btn-primary event-submit-button">Register Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="font-size-16px font-weight-700 ms-4 mt-2">Quick Links</div>
+        <div class="ms-4 me-4 mt-3">
+          <div
+            class="d-flex justify-content-between white-background-color ps-4 pe-3 pt-1 pb-2 mt-2 mb-3 quick-link-card">
+            <div class="pt-2 link-text-color underline-blue" onclick="location.href = 'www.yoursite.com';">Learning
+              Resources</div>
+            <img src="./svgs/send.svg" alt="send" onclick="location.href = 'www.yoursite.com'">
+          </div>
+          <div
+            class="d-flex justify-content-between white-background-color ps-4 pe-3 pt-1 pb-2 mt-2 mb-3 quick-link-card">
+            <div class="pt-2 link-text-color underline-blue">Learning Resources</div>
+            <img src="./svgs/send.svg" alt="send" onclick="location.href = 'www.yoursite.com'">
+          </div>
+          <div
+            class="d-flex justify-content-between white-background-color ps-4 pe-3 pt-1 pb-2 mt-2 mb-3 quick-link-card">
+            <div class="pt-2 link-text-color underline-blue">Learning Resources</div>
+            <img src="./svgs/send.svg" alt="send" onclick="location.href = 'www.yoursite.com'">
+          </div>
+          <div
+            class="d-flex justify-content-between white-background-color ps-4 pe-3 pt-1 pb-2 mt-2 mb-3 quick-link-card">
+            <div class="pt-2 link-text-color underline-blue">Learning Resources</div>
+            <img src="./svgs/send.svg" alt="send" onclick="location.href = 'www.yoursite.com'">
+          </div>
+          <div
+            class="d-flex justify-content-between white-background-color ps-4 pe-3 pt-1 pb-2 mt-2 mb-3 quick-link-card">
+            <div class="pt-2 link-text-color underline-blue">Learning Resources</div>
+            <img src="./svgs/send.svg" alt="send" onclick="location.href = 'www.yoursite.com'">
+          </div>
+        </div>
+      </div>
+      <div class="pb-4">
+        <div class="font-size-16px font-weight-700 ms-4 mt-2">Contact Regional Manager</div>
+        <div class="ms-4 me-4 mt-3 white-background-color padding-top-16 regional-card">
+          <div class="row padding-x-16">
+            <div class="col-3">
+              <img src="./images/regional.png" alt="">
+            </div>
+            <div class="col-9">
+              <div class="link-text-color font-size-16px">Santosh Sharma</div>
+              <div class="font-size-13px d-flex">
+                <div>+91 9876543210</div>
+                <div class="vertical-line ms-3 me-3" style="height: 14px"></div>
+                <div>Hyderabad</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-4 pt-1 pb-1 secondary-background-color">
+            sshatmal123@kcoverseas.com</div>
+        </div>
+        <div class="ms-4 me-4 mt-3 white-background-color padding-top-16 regional-card">
+          <div class="row padding-x-16">
+            <div class="col-3">
+              <img src="./images/regional.png" alt="">
+            </div>
+            <div class="col-9">
+              <div class="link-text-color font-size-16px">Santosh Sharma</div>
+              <div class="font-size-13px d-flex">
+                <div>+91 9876543210</div>
+                <div class="vertical-line ms-3 me-3" style="height: 14px"></div>
+                <div>Hyderabad</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-4 pt-1 pb-1 secondary-background-color">
+            sshatmal123@kcoverseas.com</div>
+        </div>
+        <div class="ms-4 me-4 mt-3 white-background-color padding-top-16 regional-card">
+          <div class="row padding-x-16">
+            <div class="col-3">
+              <img src="./images/regional.png" alt="">
+            </div>
+            <div class="col-9">
+              <div class="link-text-color font-size-16px">Santosh Sharma</div>
+              <div class="font-size-13px d-flex">
+                <div>+91 9876543210</div>
+                <div class="vertical-line ms-3 me-3" style="height: 14px"></div>
+                <div>Hyderabad</div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-4 pt-1 pb-1 secondary-background-color">
+            sshatmal123@kcoverseas.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+  </script>
+  <script>
+    function toggle(ID) {
+      var element = document.getElementById(ID);
+      if (element.style.display === "none") {
+        element.style.display = "block";
+        element.style.transition = "all .2s ease-out"
+      } else {
+        element.style.display = "none";
+      }
+    }
+
+    function hamburgerToggle() {
+      var element = document.getElementById("hamburger-menu");
+      if (element.style.display === "none") {
+        element.style.display = "block";
+        element.style.transition = "all .2s ease-out"
+      } else {
+        element.style.display = "none";
+        element.style.transition = "all .1s ease-out"
+      }
+    }
+
+    function sidebarHideHandler() {
+      // div contains sidebar
+      var column_class = document.getElementById('sidebar-container').className;
+
+      if(column_class.includes("col-lg-3")){
+      // sidebar-change class
+       document.getElementById("sidebar-container").classList.remove('col-lg-3');
+       document.getElementById("sidebar-container").classList.add('col-lg-1');
+       
+      // middle-column change class
+      document.getElementById("dashboard-middle-section").classList.remove('col-lg-5');
+      document.getElementById("dashboard-middle-section").classList.add('col-lg-7');
+
+      // side-bar listing
+      var element = document.getElementsByClassName("sidebar-item");
+      for (let index = 0; index < element.length; index++) {
+        element[index].style.display = "none"
+      }
+
+      // side-bar button rotation
+      document.getElementById("sidebar-close-container-id").classList.add('sidebar-close-container-rotation');
+      } else{
+      // sidebar-change class
+      document.getElementById("sidebar-container").classList.remove('col-lg-1');
+      document.getElementById("sidebar-container").classList.add('col-lg-3');
+       
+      // middle-column change class
+      document.getElementById("dashboard-middle-section").classList.remove('col-lg-7');
+      document.getElementById("dashboard-middle-section").classList.add('col-lg-5');
+      
+      // side-bar listing
+      var element = document.getElementsByClassName("sidebar-item");
+      for (let index = 0; index < element.length; index++) {
+        element[index].style.display = "contents"
+      }
+
+      // side-bar button rotation over
+      // side-bar button rotation
+      document.getElementById("sidebar-close-container-id").classList.remove('sidebar-close-container-rotation');
+      }
+     }
+    new DataTable('#example', {
+      responsive: true,
+      pageLength: 5,
+      bFilter: false,
+      bInfo: false,
+      lengthChange: false
+    });
+  </script>
+  <script>
+    // Date picker
+    $(function () {
+      $("#datepicker").datepicker({
+        autoclose: true,
+        todayHighlight: true,
+      }).datepicker('update', new Date());
+    });
+    document.getElementById("layer-date").addEventListener("click", function () {
+      document.getElementsByClassName('.day')
+      document.getElementById("layer-date").style.display = "none";
+      document.querySelector('#datepicker input').hidden = false;
+    })
+
+    // Year
+    $(function () {
+      $("#yearpicker").datepicker({
+        autoclose: true,
+        todayHighlight: true,
+      }).datepicker('update', new Date());
+    });
+    document.getElementById("layer-year-date").addEventListener("click", function () {
+      document.getElementsByClassName('.day')
+      document.getElementById("layer-year-date").style.display = "none";
+      document.querySelector('#yearpicker input').hidden = false;
+    })
+  </script>
+</body>
+
+</html>
